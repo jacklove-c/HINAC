@@ -91,10 +91,7 @@ def load_data(prefix='DBLP'):
                     print(f"[!] Failed to load cache: {e}. Will regenerate...")
                     sys.stdout.flush()
             
-            # No cache or cache loading failed, execute LAAC inference
-            print(f"\n[+] Detecting missing attributes for Node Type {i}.")
-            print(f"[+] Node Type {i} has {dl.nodes['count'][i]} nodes without pre-computed features.")
-            print(f"[+] Invoking LAAC (LLM-Augmented Attribute Completion)...")
+
             sys.stdout.flush()
             
             # Dynamically generate dense semantic feature vectors for completion
@@ -111,12 +108,12 @@ def load_data(prefix='DBLP'):
                 sys.stdout.flush()
             
             features.append(completed_features)
-            print(f"[+] LAAC completed for Node Type {i}. Feature shape: {completed_features.shape}")
+            
             sys.stdout.flush()
             # ====================================
         else:
             features.append(th)
-            print(f"[+] Node Type {i}: Using pre-computed features. Shape: {th.shape}")
+            
             sys.stdout.flush()
             
     labels = np.zeros((dl.nodes['count'][0], dl.labels_train['num_classes']), dtype=int)

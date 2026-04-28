@@ -64,9 +64,8 @@ def complete_attributes_laac(node_type_id, dl, adjM, base_url="http://localhost:
     node_ids = list(range(start_idx, end_idx))
     inferred_texts = [""] * count
 
-    print(f"[*] LAAC: Inferring semantics for Node Type {node_type_id} (Nodes: {count})...")
+    print(f"[*] LAAC: Inferring semantics for Node Type {node_type_id}...")
     print(f"[*] Using model: {llm_model} | Base URL: {base_url}")
-    print(f"[*] Concurrent workers: 64 | Total nodes: {count}\n")
     sys.stdout.flush()
     
     with ThreadPoolExecutor(max_workers=64) as executor:
@@ -87,8 +86,7 @@ def complete_attributes_laac(node_type_id, dl, adjM, base_url="http://localhost:
                     elapsed = time.time() - start_time
                     avg_time = elapsed / completed_count
                     remaining = avg_time * (len(node_ids) - completed_count)
-                    print(f"\r[Progress] {completed_count}/{len(node_ids)} nodes | "
-                          f"Elapsed: {elapsed:.1f}s | "
+                    print( f"Elapsed: {elapsed:.1f}s | "
                           f"Avg: {avg_time:.2f}s/node | "
                           f"ETA: {remaining:.1f}s", flush=True)
                     sys.stdout.flush()
