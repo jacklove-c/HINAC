@@ -1,6 +1,6 @@
 # HINAC: Representation Learning On Heterogeneous Information Networks with Graph Transformer
 
-We provide the implementaion of HINAC based on the official PyTorch implementation of HGB(https://github.com/THUDM/HGB)
+
 
 ## 1. Descriptions
 The repository is organised as follows:
