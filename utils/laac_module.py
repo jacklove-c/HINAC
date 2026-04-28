@@ -64,7 +64,7 @@ def complete_attributes_laac(node_type_id, dl, adjM, base_url="http://localhost:
     node_ids = list(range(start_idx, end_idx))
     inferred_texts = [""] * count
 
-    print(f"[*] LAAC: Inferring semantics for Node Type {node_type_id}...")
+    print(f"[*] LAAC: Inferring semantics for Node...")
     print(f"[*] Using model: {llm_model} | Base URL: {base_url}")
     sys.stdout.flush()
     
@@ -97,7 +97,7 @@ def complete_attributes_laac(node_type_id, dl, adjM, base_url="http://localhost:
                 completed_count += 1
     
     total_time = time.time() - start_time
-    print(f"\n[*] LAAC: Completed inference for all {len(node_ids)} nodes in {total_time:.2f}s")
+
     print(f"[*] Average time per node: {total_time/len(node_ids):.2f}s\n")
     sys.stdout.flush()
     print(f"[*] LAAC: Vectorizing semantics via Local Embedding Model...")
